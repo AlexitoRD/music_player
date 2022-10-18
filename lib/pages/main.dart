@@ -1,8 +1,15 @@
+/*
+ * Author: Alexander Dunbar
+ * Date: 2022-10-18, 8:14 p.m.
+ */
+
 import 'package:flutter/material.dart';
 import 'package:music_player/pages/base_page.dart';
 
 void main() {
-  runApp(const MyApp(),);
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
