@@ -32,18 +32,40 @@ class _PlayerWidgetState extends State<PlayerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
         SizedBox(
-          height: _deviceInfo.deviceHeight * 0.75,
+          height: _deviceInfo.deviceHeight * 0.72,
           child: AlbumArtWidget(),
         ),
-        Divider(),
-        Padding(
-          padding: const EdgeInsets.only(top: 12.0),
-          child: CurrentSongWidget(),
-        ),
-        ControlsWidget(),
+        DraggableScrollableSheet(
+            snap: true,
+            initialChildSize: 0.1,
+            minChildSize: 0.1,
+            maxChildSize: 0.6,
+            builder: (BuildContext context, ScrollController scrollController) {
+              return Container(
+                color: Colors.black12.withOpacity(0.9),
+                child: ListView.builder(
+                  controller: scrollController,
+                  itemCount: 25,
+                  itemBuilder: (BuildContext context, int index) {
+                    if (index == 0) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: const [
+                            CurrentSongWidget(),
+                            ControlsWidget(),
+                          ],
+                        ),
+                      );
+                    }
+                    return ListTile(title: Text('Item $index'));
+                  },
+                ),
+              );
+            }),
       ],
     );
   }

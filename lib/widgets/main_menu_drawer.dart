@@ -25,9 +25,15 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
             child: DrawerHeader(
               child: Container(
                 alignment: Alignment.bottomLeft,
-                child: Text(
-                  'Music Player',
-                  style: TextStyle(fontSize: 28),
+                child: ListTile(
+                  title: Text(
+                    'Song Name Here',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  subtitle: Text(
+                    'Artist Name Here',
+                    style: TextStyle(fontSize: 22),
+                  ),
                 ),
               ),
             ),
