@@ -49,7 +49,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
             maxChildSize: 0.6,
             builder: (BuildContext context, ScrollController scrollController) {
               return Container(
-                color: Colors.black12.withOpacity(0.9),
+                color: Colors.black26.withOpacity(0.9),
                 child: Column(
                   children: [
                     Padding(
