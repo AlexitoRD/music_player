@@ -41,15 +41,19 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
           Divider(),
           ListTile(
             title: Text('Playlists'),
+            subtitle: Text('View your created playlists'),
           ),
           ListTile(
             title: Text('Artists'),
+            subtitle: Text('Sort music by artist'),
           ),
           ListTile(
             title: Text('Albums'),
+            subtitle: Text('Sort music by albums'),
           ),
           ListTile(
             title: Text('Songs'),
+            subtitle: Text('All songs added'),
           ),
           ListTile(
             title: Text(
@@ -59,7 +63,8 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
           ),
           Divider(),
           ListTile(
-            title: Text('File Locations'),
+            title: Text('Add Music'),
+            subtitle: Text('Add music from your device to the player'),
           )
         ],
       ),
