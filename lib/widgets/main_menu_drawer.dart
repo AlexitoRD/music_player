@@ -25,18 +25,42 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
             child: DrawerHeader(
               child: Container(
                 alignment: Alignment.bottomLeft,
-                child: Text('Music Player'),
+                child: Text(
+                  'Music Player',
+                  style: TextStyle(fontSize: 28),
+                ),
               ),
             ),
           ),
           ListTile(
-            title: Text('Music'),
+            title: Text(
+              'Music',
+              style: TextStyle(fontSize: 20),
+            ),
           ),
           Divider(),
           ListTile(
-            title: Text('Options'),
+            title: Text('Playlists'),
+          ),
+          ListTile(
+            title: Text('Artists'),
+          ),
+          ListTile(
+            title: Text('Albums'),
+          ),
+          ListTile(
+            title: Text('Songs'),
+          ),
+          ListTile(
+            title: Text(
+              'Options',
+              style: TextStyle(fontSize: 20),
+            ),
           ),
           Divider(),
+          ListTile(
+            title: Text('File Locations'),
+          )
         ],
       ),
     );
