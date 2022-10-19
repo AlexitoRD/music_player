@@ -5,6 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:music_player/widgets/main_menu_drawer.dart';
+import 'package:music_player/widgets/player/player_widget.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage();
@@ -25,7 +26,9 @@ class _BasePageState extends State<BasePage> {
         centerTitle: true,
         title: Text('M P'),
       ),
-      body: Container(),
+      body: SafeArea(
+        child: PlayerWidget(),
+      ),
     );
   }
 }
