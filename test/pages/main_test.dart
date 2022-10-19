@@ -21,6 +21,5 @@ void main() {
 
     expect(find.byType(BasePage), findsOneWidget);
     expect(find.text('M P'), findsOneWidget);
-    expect(find.byKey(const Key('MenuKey')), findsOneWidget);
   });
 }

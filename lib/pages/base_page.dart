@@ -4,6 +4,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:music_player/widgets/main_menu_drawer.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage();
@@ -16,9 +17,13 @@ class _BasePageState extends State<BasePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      drawer: SafeArea(
+        child: MainMenuDrawer(),
+      ),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('M P'),
+        title: Text('M P'),
       ),
       body: Container(),
     );
