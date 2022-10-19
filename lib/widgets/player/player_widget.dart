@@ -10,8 +10,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:music_player/utils/device_info.dart';
-import 'package:music_player/widgets/player/album_art_wiidget.dart';
+import 'package:music_player/widgets/player/album_art_widget.dart';
 import 'package:music_player/widgets/player/controls_widget.dart';
+import 'package:music_player/widgets/player/current_song_widget.dart';
 
 class PlayerWidget extends StatefulWidget {
   const PlayerWidget();
@@ -34,8 +35,13 @@ class _PlayerWidgetState extends State<PlayerWidget> {
     return Column(
       children: [
         SizedBox(
-          height: _deviceInfo.deviceHeight * 0.8,
+          height: _deviceInfo.deviceHeight * 0.75,
           child: AlbumArtWidget(),
+        ),
+        Divider(),
+        Padding(
+          padding: const EdgeInsets.only(top: 12.0),
+          child: CurrentSongWidget(),
         ),
         ControlsWidget(),
       ],
