@@ -9,6 +9,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:music_player/utils/device_info.dart';
 import 'package:music_player/widgets/player/album_art_wiidget.dart';
 import 'package:music_player/widgets/player/controls_widget.dart';
 
@@ -20,11 +21,22 @@ class PlayerWidget extends StatefulWidget {
 }
 
 class _PlayerWidgetState extends State<PlayerWidget> {
+  late DeviceInfo _deviceInfo;
+
+  @override
+  void initState() {
+    super.initState();
+    _deviceInfo = DeviceInfo(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        AlbumArtWidget(),
+      children: [
+        SizedBox(
+          height: _deviceInfo.deviceHeight * 0.8,
+          child: AlbumArtWidget(),
+        ),
         ControlsWidget(),
       ],
     );
