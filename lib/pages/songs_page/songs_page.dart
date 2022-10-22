@@ -4,6 +4,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:music_player/models/song.dart';
 import 'package:music_player/pages/songs_page/songs_page_bloc.dart';
 import 'package:music_player/utils/locator.dart';
 import 'package:music_player/widgets/main_menu_drawer/main_menu_drawer.dart';
@@ -35,14 +36,32 @@ class _SongsPageState extends State<SongsPage> {
       ),
       body: SafeArea(
         child: Center(
-          child: ElevatedButton(
-            onPressed: () async {
-              _songsPageBloc.getAllSongs();
-            },
-            child: Text('Find songs'),
-          ),
+          child: StreamBuilder<List<Song>>(
+              stream: _songsPageBloc.allSongs,
+              builder: (context, snapshot) {
+                final songList = snapshot.data;
+                if (songList == null || songList.isEmpty) {
+                  return CircularProgressIndicator();
+                }
+                return ListView.builder(
+                  itemCount: songList.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(songList[index].title ?? 'Unknown Title'),
+                      subtitle:
+                          Text(songList[index].artist ?? 'Unknown Artist'),
+                    );
+                  },
+                );
+              }),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _songsPageBloc.dispose();
   }
 }

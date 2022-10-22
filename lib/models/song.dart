@@ -11,8 +11,8 @@ class Song {
 
   Song({
     this.id,
-    required this.title,
-    required this.artist,
+    this.title,
+    this.artist,
     required this.filePath,
   });
 
@@ -25,8 +25,11 @@ class Song {
     };
   }
 
-  static Song fromDBResult(Map<String, dynamic?> result) {
-    // return Song(title: result['title'], artist: artist, filePath: filePath)
-    throw UnimplementedError();
+  static Song fromDBResult(Map<String, dynamic> result) {
+    return Song(
+        id: result['id'],
+        title: result['title'],
+        artist: result['artist'],
+        filePath: result['filePath']);
   }
 }

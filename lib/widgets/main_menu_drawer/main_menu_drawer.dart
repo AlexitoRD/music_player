@@ -11,6 +11,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/pages/albums_page/albums_page.dart';
 import 'package:music_player/pages/artists_page/artists_page.dart';
+import 'package:music_player/pages/base_page.dart';
 import 'package:music_player/pages/playlists_page/playlists_page.dart';
 import 'package:music_player/pages/songs_page/songs_page.dart';
 import 'package:music_player/utils/locator.dart';
@@ -46,7 +47,7 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
                 alignment: Alignment.bottomLeft,
                 child: ListTile(
                   title: Text(
-                    'Music Player',
+                    'Some Other Title',
                     style: TextStyle(fontSize: 24),
                   ),
                 ),
@@ -55,9 +56,16 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
           ),
           ListTile(
             title: Text(
-              'Music',
+              'Music Player',
               style: TextStyle(fontSize: 20),
             ),
+            onTap: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const BasePage(),
+                ),
+              );
+            },
           ),
           Divider(),
           ListTile(
@@ -101,7 +109,7 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
             subtitle: Text('All songs added'),
             key: Key('SongsTile'),
             onTap: () {
-              Navigator.of(context).push(
+              Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   builder: (context) => const SongsPage(),
                 ),
