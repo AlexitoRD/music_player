@@ -9,7 +9,9 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:music_player/pages/base_page/base_page_bloc.dart';
 import 'package:music_player/pages/base_page/bottom_nav_bar_items.dart';
+import 'package:music_player/utils/locator.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage();
@@ -19,6 +21,7 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
+  final BasePageBloc _bloc = locator<BasePageBloc>();
   int _selectedPage = 2;
 
   @override
@@ -35,5 +38,10 @@ class _BasePageState extends State<BasePage> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }

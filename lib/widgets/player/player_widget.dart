@@ -34,13 +34,11 @@ class _PlayerWidgetState extends State<PlayerWidget> {
         SizedBox(
           child: AlbumArtWidget(),
         ),
-        Container(
-          child: Column(
-            children: const [
-              CurrentSongWidget(),
-              ControlsWidget(),
-            ],
-          ),
+        Column(
+          children: const [
+            CurrentSongWidget(),
+            ControlsWidget(),
+          ],
         ),
       ],
     );
