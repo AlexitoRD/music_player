@@ -23,9 +23,6 @@ class PlayerWidget extends StatefulWidget {
 
 class _PlayerWidgetState extends State<PlayerWidget> {
   late DeviceInfo _deviceInfo;
-  final DraggableScrollableController _draggableController =
-      DraggableScrollableController();
-  final double _minDraggableSize = 0.25;
 
   @override
   void initState() {
@@ -35,55 +32,22 @@ class _PlayerWidgetState extends State<PlayerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
         SizedBox(
           height: _deviceInfo.deviceHeight * 0.72,
           child: AlbumArtWidget(),
         ),
-        DraggableScrollableSheet(
-            controller: _draggableController,
-            snap: true,
-            initialChildSize: 0.25,
-            minChildSize: _minDraggableSize,
-            maxChildSize: 0.6,
-            builder: (BuildContext context, ScrollController scrollController) {
-              return Container(
-                color: Colors.black26.withOpacity(0.9),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: const [
-                          CurrentSongWidget(),
-                          ControlsWidget(),
-                        ],
-                      ),
-                    ),
-                    Divider(),
-                    Expanded(
-                      child: ListView.builder(
-                        controller: scrollController,
-                        itemCount: 25,
-                        itemBuilder: (BuildContext context, int index) {
-                          return ListTile(
-                            title: Text('Item $index'),
-                            onTap: _hidePlaylist,
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            }),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: const [
+              CurrentSongWidget(),
+              ControlsWidget(),
+            ],
+          ),
+        ),
       ],
     );
-  }
-
-  void _hidePlaylist() {
-    _draggableController.animateTo(_minDraggableSize,
-        duration: Duration(milliseconds: 100), curve: Curves.easeOutBack);
   }
 }
