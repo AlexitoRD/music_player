@@ -1,5 +1,10 @@
 /*
  * Author: Alexander Dunbar
+ * Date: 2022-10-21, 10:02 p.m.
+ */
+
+/*
+ * Author: Alexander Dunbar
  * Date: 2022-10-18, 8:30 p.m.
  */
 
@@ -27,12 +32,8 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
                 alignment: Alignment.bottomLeft,
                 child: ListTile(
                   title: Text(
-                    'Song Name Here',
+                    'Music Player',
                     style: TextStyle(fontSize: 24),
-                  ),
-                  subtitle: Text(
-                    'Artist Name Here',
-                    style: TextStyle(fontSize: 22),
                   ),
                 ),
               ),

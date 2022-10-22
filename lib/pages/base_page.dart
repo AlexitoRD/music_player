@@ -4,7 +4,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:music_player/widgets/main_menu_drawer.dart';
+import 'package:music_player/widgets/main_menu_drawer/main_menu_drawer.dart';
 import 'package:music_player/widgets/player/player_widget.dart';
 
 class BasePage extends StatefulWidget {
