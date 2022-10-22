@@ -16,9 +16,13 @@ class SongService {
     await db.insert('songs', song.toMap());
   }
 
-  Future<void> getAllSongs() async {
+  Future<List<Song>> getAllSongs() async {
     final db = await _databaseService.openDb();
+    List<Song> songs = [];
     final results = await db.rawQuery('SELECT * FROM songs');
-    print(results.first);
+    for (Map<String, dynamic> song in results) {
+      songs.add(Song.fromDBResult(song));
+    }
+    return songs;
   }
 }

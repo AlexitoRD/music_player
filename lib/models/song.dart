@@ -24,4 +24,9 @@ class Song {
       'filePath': filePath,
     };
   }
+
+  static Song fromDBResult(Map<String, dynamic?> result) {
+    // return Song(title: result['title'], artist: artist, filePath: filePath)
+    throw UnimplementedError();
+  }
 }
