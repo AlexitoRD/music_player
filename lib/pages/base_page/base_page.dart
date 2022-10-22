@@ -25,6 +25,12 @@ class _BasePageState extends State<BasePage> {
   int _selectedPage = 2;
 
   @override
+  void initState() {
+    super.initState();
+    _bloc.init();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BottomNavBarItems.pages[_selectedPage],

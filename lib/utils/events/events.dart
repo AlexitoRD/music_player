@@ -10,3 +10,7 @@ class PlayEvent extends GlobalEvent {
 
   PlayEvent({required this.filePath});
 }
+
+class PauseEvent extends GlobalEvent {
+  PauseEvent();
+}

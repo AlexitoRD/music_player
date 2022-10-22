@@ -5,6 +5,8 @@
 
 import 'package:music_player/database_service/song_service.dart';
 import 'package:music_player/models/song.dart';
+import 'package:music_player/utils/events/events.dart';
+import 'package:music_player/utils/events/global_event_bus.dart';
 import 'package:music_player/utils/locator.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -33,7 +35,13 @@ class SongsPageBloc {
     _allSongsSubject.add(newSongList);
   }
 
-  Future<void> playSong(String filePath) async {}
+  void playSong(String filePath) {
+    GlobalEventBus.sendEvent(PlayEvent(filePath: filePath));
+  }
+
+  void pauseSong() {
+    GlobalEventBus.sendEvent(PauseEvent());
+  }
 
   void dispose() {
     _allSongsSubject.close();

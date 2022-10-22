@@ -16,12 +16,13 @@ class SongsPage extends StatefulWidget {
 }
 
 class _SongsPageState extends State<SongsPage> {
-  final SongsPageBloc _songsPageBloc = locator<SongsPageBloc>();
+  final SongsPageBloc _bloc = locator<SongsPageBloc>();
+  bool _isPlaying = false;
 
   @override
   void initState() {
     super.initState();
-    _songsPageBloc.init();
+    _bloc.init();
   }
 
   @override
@@ -31,7 +32,7 @@ class _SongsPageState extends State<SongsPage> {
       body: SafeArea(
         child: Center(
           child: StreamBuilder<List<Song>>(
-              stream: _songsPageBloc.allSongs,
+              stream: _bloc.allSongs,
               builder: (context, snapshot) {
                 final songList = snapshot.data;
                 if (songList == null || songList.isEmpty) {
@@ -45,10 +46,15 @@ class _SongsPageState extends State<SongsPage> {
                       subtitle:
                           Text(songList[index].artist ?? 'Unknown Artist'),
                       onLongPress: () async {
-                        await _songsPageBloc.removeSong(songList[index].id);
+                        await _bloc.removeSong(songList[index].id);
                       },
-                      onTap: () async {
-                        await _songsPageBloc.playSong(songList[index].filePath);
+                      onTap: () {
+                        _isPlaying
+                            ? _bloc.pauseSong()
+                            : _bloc.playSong(songList[index].filePath);
+                        setState(() {
+                          _isPlaying = !_isPlaying;
+                        });
                       },
                     );
                   },
@@ -62,6 +68,6 @@ class _SongsPageState extends State<SongsPage> {
   @override
   void dispose() {
     super.dispose();
-    _songsPageBloc.dispose();
+    _bloc.dispose();
   }
 }

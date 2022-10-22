@@ -16,7 +16,16 @@ class BasePageBloc {
   late StreamSubscription<GlobalEvent> _audioPlayerEvents;
 
   Future<void> init() async {
-    _audioPlayerEvents = GlobalEventBus.events.listen((event) {});
+    _audioPlayerEvents = GlobalEventBus.events.listen((event) {
+      if (event is PlayEvent) {
+        print('Play event at ${event.filePath}');
+        _audioPlayer.play(DeviceFileSource(event.filePath));
+      }
+      if (event is PauseEvent) {
+        print('Pause event');
+        _audioPlayer.pause();
+      }
+    });
   }
 
   void dispose() {
