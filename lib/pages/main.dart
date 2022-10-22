@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:music_player/pages/base_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     const MyApp(),
   );
