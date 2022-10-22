@@ -19,9 +19,7 @@ class _BasePageState extends State<BasePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      drawer: SafeArea(
-        child: MainMenuDrawer(),
-      ),
+      drawer: MainMenuDrawer(),
       appBar: AppBar(
         centerTitle: true,
         title: Text('M P'),

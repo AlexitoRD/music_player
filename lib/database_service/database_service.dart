@@ -20,7 +20,7 @@ class DatabaseService {
   }
 
   static String createDB1 =
-      'CREATE TABLE songs(id INTEGER AUTO_INCREMENT PRIMARY KEY, '
+      'CREATE TABLE songs(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, '
       'title TEXT, '
       'artist TEXT, '
       'filePath Text)';
