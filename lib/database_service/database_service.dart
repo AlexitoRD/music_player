@@ -14,7 +14,7 @@ class DatabaseService {
       join(await getDatabasesPath(), 'music_player_database.db'),
       version: _dbVersion,
       onCreate: (db, version) {
-        db.execute(createDB1);
+        return db.execute(createDB1);
       },
     );
   }

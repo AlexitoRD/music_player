@@ -4,13 +4,13 @@
  */
 
 class Song {
-  final int id;
-  final String title;
-  final String artist;
+  final int? id;
+  final String? title;
+  final String? artist;
   final String filePath;
 
   Song({
-    required this.id,
+    this.id,
     required this.title,
     required this.artist,
     required this.filePath,
