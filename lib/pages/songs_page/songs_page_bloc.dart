@@ -18,8 +18,7 @@ class SongsPageBloc {
 
   Future<void> init() async {
     final allSongs = await _songService.getAllSongs();
-    _allSongsSubject
-        .add(allSongs); //TODO: Figure out why this tries to add after close.
+    _allSongsSubject.add(allSongs);
   }
 
   Future<void> removeSong(int? songID) async {
@@ -36,7 +35,7 @@ class SongsPageBloc {
 
   Future<void> playSong(String filePath) async {}
 
-  Future<void> dispose() async {
-    await _allSongsSubject.close();
+  void dispose() {
+    _allSongsSubject.close();
   }
 }

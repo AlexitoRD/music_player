@@ -15,9 +15,7 @@ void setUp() {
   //Factories
   locator.registerFactory<DatabaseService>(() => DatabaseService());
   locator.registerFactory<SongService>(() => SongService());
-
-  //Singletons
-  locator.registerSingleton<MainMenuDrawerBloc>(MainMenuDrawerBloc());
-  locator.registerSingleton<SongsPageBloc>(SongsPageBloc());
-  locator.registerSingleton<PlayerPageBloc>(PlayerPageBloc());
+  locator.registerFactory<MainMenuDrawerBloc>(() => MainMenuDrawerBloc());
+  locator.registerFactory<SongsPageBloc>(() => SongsPageBloc());
+  locator.registerFactory<PlayerPageBloc>(() => PlayerPageBloc());
 }

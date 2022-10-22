@@ -25,10 +25,6 @@ class _PlayerPageState extends State<PlayerPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       drawer: MainMenuDrawer(),
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('M P'),
-      ),
       body: PlayerWidget(),
     );
   }
