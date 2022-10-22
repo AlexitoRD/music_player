@@ -22,6 +22,18 @@ class SongsPageBloc {
         .add(allSongs); //TODO: Figure out why this tries to add after close.
   }
 
+  Future<void> removeSong(int? songID) async {
+    if (songID != null) {
+      await _songService.removeSong(songID);
+      await _updateSongList();
+    }
+  }
+
+  Future<void> _updateSongList() async {
+    final newSongList = await _songService.getAllSongs();
+    _allSongsSubject.add(newSongList);
+  }
+
   Future<void> dispose() async {
     await _allSongsSubject.close();
   }

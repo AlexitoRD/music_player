@@ -50,6 +50,9 @@ class _SongsPageState extends State<SongsPage> {
                       title: Text(songList[index].title ?? 'Unknown Title'),
                       subtitle:
                           Text(songList[index].artist ?? 'Unknown Artist'),
+                      onLongPress: () async {
+                        await _songsPageBloc.removeSong(songList[index].id);
+                      },
                     );
                   },
                 );

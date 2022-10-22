@@ -25,4 +25,9 @@ class SongService {
     }
     return songs;
   }
+
+  Future<void> removeSong(int songID) async {
+    final db = await _databaseService.openDb();
+    await db.rawDelete('DELETE FROM songs WHERE id = ?', [songID]);
+  }
 }
