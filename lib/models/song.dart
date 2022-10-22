@@ -7,12 +7,16 @@ class Song {
   final int? id;
   final String? title;
   final String? artist;
+  final String? album;
+  final int? year;
   final String filePath;
 
   Song({
     this.id,
     this.title,
     this.artist,
+    this.album,
+    this.year,
     required this.filePath,
   });
 
@@ -21,6 +25,8 @@ class Song {
       'id': id,
       'title': title,
       'artist': artist,
+      'album': album,
+      'year': year,
       'filePath': filePath,
     };
   }
@@ -30,6 +36,8 @@ class Song {
         id: result['id'],
         title: result['title'],
         artist: result['artist'],
+        album: result['album'],
+        year: result['year'],
         filePath: result['filePath']);
   }
 }

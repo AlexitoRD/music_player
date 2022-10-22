@@ -7,4 +7,8 @@ class Artist {
   final String name;
 
   Artist({required this.name});
+
+  static Artist fromDBResult(Map<String, dynamic> result) {
+    return Artist(name: result['artist']);
+  }
 }
