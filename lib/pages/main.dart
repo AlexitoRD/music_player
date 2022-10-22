@@ -4,7 +4,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:music_player/pages/base_page.dart';
+import 'package:music_player/pages/player_page/player_page.dart';
 import 'package:music_player/utils/locator.dart';
 
 void main() {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'M P',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: BasePage(),
+      home: PlayerPage(),
     );
   }
 }

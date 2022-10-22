@@ -53,6 +53,9 @@ class _SongsPageState extends State<SongsPage> {
                       onLongPress: () async {
                         await _songsPageBloc.removeSong(songList[index].id);
                       },
+                      onTap: () async {
+                        await _songsPageBloc.playSong(songList[index].filePath);
+                      },
                     );
                   },
                 );

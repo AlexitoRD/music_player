@@ -11,7 +11,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/pages/albums_page/albums_page.dart';
 import 'package:music_player/pages/artists_page/artists_page.dart';
-import 'package:music_player/pages/base_page.dart';
+import 'package:music_player/pages/player_page/player_page.dart';
 import 'package:music_player/pages/playlists_page/playlists_page.dart';
 import 'package:music_player/pages/songs_page/songs_page.dart';
 import 'package:music_player/utils/locator.dart';
@@ -62,7 +62,7 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
             onTap: () {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (context) => const BasePage(),
+                  builder: (context) => const PlayerPage(),
                 ),
               );
             },

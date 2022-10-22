@@ -38,8 +38,8 @@ class _PlayerWidgetState extends State<PlayerWidget> {
           height: _deviceInfo.deviceHeight * 0.72,
           child: AlbumArtWidget(),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
+        Container(
+          color: Colors.red,
           child: Column(
             children: const [
               CurrentSongWidget(),

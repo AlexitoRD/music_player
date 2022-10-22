@@ -34,6 +34,8 @@ class SongsPageBloc {
     _allSongsSubject.add(newSongList);
   }
 
+  Future<void> playSong(String filePath) async {}
+
   Future<void> dispose() async {
     await _allSongsSubject.close();
   }

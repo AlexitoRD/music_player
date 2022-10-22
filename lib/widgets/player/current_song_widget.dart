@@ -15,14 +15,17 @@ class CurrentSongWidget extends StatefulWidget {
 class _CurrentSongWidgetState extends State<CurrentSongWidget> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        Text('Name of Current Song'),
-        SizedBox(
-          height: 7,
-        ),
-        Text('Name of Current Artist'),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: const [
+          Text('Name of Current Song'),
+          SizedBox(
+            height: 7,
+          ),
+          Text('Name of Current Artist'),
+        ],
+      ),
     );
   }
 }

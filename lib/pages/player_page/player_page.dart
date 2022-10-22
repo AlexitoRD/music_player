@@ -1,5 +1,10 @@
 /*
  * Author: Alexander Dunbar
+ * Date: 2022-10-22, 4:11 p.m.
+ */
+
+/*
+ * Author: Alexander Dunbar
  * Date: 2022-10-18, 8:14 p.m.
  */
 
@@ -7,14 +12,14 @@ import 'package:flutter/material.dart';
 import 'package:music_player/widgets/main_menu_drawer/main_menu_drawer.dart';
 import 'package:music_player/widgets/player/player_widget.dart';
 
-class BasePage extends StatefulWidget {
-  const BasePage();
+class PlayerPage extends StatefulWidget {
+  const PlayerPage();
 
   @override
-  State<BasePage> createState() => _BasePageState();
+  State<PlayerPage> createState() => _PlayerPageState();
 }
 
-class _BasePageState extends State<BasePage> {
+class _PlayerPageState extends State<PlayerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,9 +29,7 @@ class _BasePageState extends State<BasePage> {
         centerTitle: true,
         title: Text('M P'),
       ),
-      body: SafeArea(
-        child: PlayerWidget(),
-      ),
+      body: PlayerWidget(),
     );
   }
 }

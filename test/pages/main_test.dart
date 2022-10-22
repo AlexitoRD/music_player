@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:music_player/pages/base_page.dart';
+import 'package:music_player/pages/player_page/player_page.dart';
 
 void main() {
   setUp(() {});
@@ -15,11 +15,11 @@ void main() {
   testWidgets('Test that the base page builds correctly', (widgetTester) async {
     await widgetTester.pumpWidget(
       const MaterialApp(
-        home: BasePage(),
+        home: PlayerPage(),
       ),
     );
 
-    expect(find.byType(BasePage), findsOneWidget);
+    expect(find.byType(PlayerPage), findsOneWidget);
     expect(find.text('M P'), findsOneWidget);
   });
 }
