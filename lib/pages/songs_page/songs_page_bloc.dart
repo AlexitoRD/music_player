@@ -4,6 +4,7 @@
  */
 
 import 'package:music_player/database_service/song_service.dart';
+import 'package:music_player/models/song.dart';
 import 'package:music_player/utils/locator.dart';
 
 class SongsPageBloc {
@@ -11,7 +12,7 @@ class SongsPageBloc {
 
   Future<void> init() async {}
 
-  Future<void> getAllSongs() async {
-    await _songService.getAllSongs();
+  Future<List<Song>> getAllSongs() async {
+    return await _songService.getAllSongs();
   }
 }
