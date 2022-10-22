@@ -7,14 +7,12 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseService {
-  final dbVersion = 1;
-
-  DatabaseService();
+  final _dbVersion = 1;
 
   Future<Database> openDb() async {
     return openDatabase(
       join(await getDatabasesPath(), 'music_player_database.db'),
-      version: dbVersion,
+      version: _dbVersion,
       onCreate: (db, version) {
         db.execute(createDB1);
       },

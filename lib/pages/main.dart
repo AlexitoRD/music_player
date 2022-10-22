@@ -5,9 +5,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:music_player/pages/base_page.dart';
+import 'package:music_player/utils/locator.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  setUp();
   runApp(
     const MyApp(),
   );
