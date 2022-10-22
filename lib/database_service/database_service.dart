@@ -23,5 +23,5 @@ class DatabaseService {
       'CREATE TABLE songs(id INTEGER AUTO_INCREMENT PRIMARY KEY, '
       'title TEXT, '
       'artist TEXT, '
-      'filePath Text';
+      'filePath Text)';
 }
