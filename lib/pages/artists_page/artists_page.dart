@@ -15,6 +15,14 @@ class ArtistsPage extends StatefulWidget {
 class _ArtistsPageState extends State<ArtistsPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: SafeArea(
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return ListTile();
+          },
+        ),
+      ),
+    );
   }
 }

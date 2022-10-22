@@ -14,7 +14,7 @@ class BottomNavBarItems {
   static List<BottomNavigationBarItem> items = [
     BottomNavigationBarItem(icon: Icon(Icons.album), label: 'Albums'),
     BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Artists'),
-    BottomNavigationBarItem(icon: Icon(Icons.play_arrow), label: 'Playing'),
+    BottomNavigationBarItem(icon: Icon(Icons.play_arrow), label: 'Now Playing'),
     BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Playlists'),
     BottomNavigationBarItem(icon: Icon(Icons.music_note), label: 'Songs'),
   ];

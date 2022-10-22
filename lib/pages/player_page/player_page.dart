@@ -70,6 +70,7 @@ class _PlayerPageState extends State<PlayerPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    IconButton(onPressed: () {}, icon: Icon(Icons.shuffle)),
                     IconButton(
                       onPressed: () {},
                       icon: Icon(Icons.keyboard_double_arrow_left),
@@ -94,6 +95,7 @@ class _PlayerPageState extends State<PlayerPage> {
                       onPressed: () {},
                       icon: Icon(Icons.keyboard_double_arrow_right),
                     ),
+                    IconButton(onPressed: () {}, icon: Icon(Icons.loop)),
                   ],
                 ),
               ],
