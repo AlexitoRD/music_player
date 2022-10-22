@@ -23,10 +23,14 @@ class BasePageBloc {
       if (event is PauseEvent) {
         _audioPlayer.pause();
       }
+      if (event is ResumeEvent) {
+        _audioPlayer.resume();
+      }
     });
   }
 
   void dispose() {
     _audioPlayerEvents.cancel();
+    _audioPlayer.release();
   }
 }

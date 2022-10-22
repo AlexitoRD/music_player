@@ -25,7 +25,6 @@ class _PlayerPageState extends State<PlayerPage> {
   @override
   void initState() {
     super.initState();
-    print('Player init');
     _deviceInfo = DeviceInfo(context);
     _bloc.init();
   }
@@ -55,8 +54,6 @@ class _PlayerPageState extends State<PlayerPage> {
                     stream: _bloc.currentSong,
                     builder: (context, snapshot) {
                       final currentSong = snapshot.data;
-                      print('Current Song ${currentSong?.title}');
-                      print('Current Song ${currentSong?.artist}');
                       return Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Column(
@@ -77,12 +74,22 @@ class _PlayerPageState extends State<PlayerPage> {
                       onPressed: () {},
                       icon: Icon(Icons.keyboard_double_arrow_left),
                     ),
-                    IconButton(
-                      onPressed: () {
-                        GlobalEventBus.sendEvent(PauseEvent());
-                      },
-                      icon: Icon(Icons.pause),
-                    ),
+                    StreamBuilder<bool>(
+                        stream: _bloc.isPlaying,
+                        initialData: false,
+                        builder: (context, snapshot) {
+                          final isPlaying = snapshot.data!;
+                          return IconButton(
+                            onPressed: () {
+                              isPlaying
+                                  ? GlobalEventBus.sendEvent(PauseEvent())
+                                  : GlobalEventBus.sendEvent(ResumeEvent());
+                            },
+                            icon: isPlaying
+                                ? Icon(Icons.pause)
+                                : Icon(Icons.play_arrow),
+                          );
+                        }),
                     IconButton(
                       onPressed: () {},
                       icon: Icon(Icons.keyboard_double_arrow_right),

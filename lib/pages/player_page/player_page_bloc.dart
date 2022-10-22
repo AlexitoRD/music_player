@@ -15,8 +15,11 @@ class PlayerPageBloc {
   final AudioPlayer audioPlayer = AudioPlayer();
 
   final BehaviorSubject<Song> _currentSongSubject = BehaviorSubject<Song>();
+  final BehaviorSubject<bool> _isPlayingSubject = BehaviorSubject<bool>();
 
   ValueStream<Song> get currentSong => _currentSongSubject;
+
+  ValueStream<bool> get isPlaying => _isPlayingSubject;
 
   late StreamSubscription<GlobalEvent> _subscription;
 
@@ -24,6 +27,13 @@ class PlayerPageBloc {
     _subscription = GlobalEventBus.events.listen((event) {
       if (event is PlayEvent) {
         _currentSongSubject.add(event.song);
+        _isPlayingSubject.add(true);
+      }
+      if (event is PauseEvent || event is StopEvent) {
+        _isPlayingSubject.add(false);
+      }
+      if (event is ResumeEvent) {
+        _isPlayingSubject.add(true);
       }
     });
   }

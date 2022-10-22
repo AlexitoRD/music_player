@@ -16,3 +16,11 @@ class PlayEvent extends GlobalEvent {
 class PauseEvent extends GlobalEvent {
   PauseEvent();
 }
+
+class StopEvent extends GlobalEvent {
+  StopEvent();
+}
+
+class ResumeEvent extends GlobalEvent {
+  ResumeEvent();
+}
