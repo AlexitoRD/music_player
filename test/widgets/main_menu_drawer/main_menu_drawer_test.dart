@@ -54,7 +54,7 @@ void main() {
     await widgetTester.tap(find.byKey(Key('ArtistTile')));
     await widgetTester.pumpAndSettle();
 
-    expect(find.byType(ArtistPage), findsOneWidget);
+    expect(find.byType(ArtistsPage), findsOneWidget);
   });
 
   testWidgets(
