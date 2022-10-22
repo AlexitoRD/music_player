@@ -13,6 +13,8 @@ import 'package:music_player/pages/albums_page/albums_page.dart';
 import 'package:music_player/pages/artists_page/artists_page.dart';
 import 'package:music_player/pages/playlists_page/playlists_page.dart';
 import 'package:music_player/pages/songs_page/songs_page.dart';
+import 'package:music_player/utils/locator.dart';
+import 'package:music_player/widgets/main_menu_drawer/main_menu_drawer_bloc.dart';
 
 class MainMenuDrawer extends StatefulWidget {
   const MainMenuDrawer();
@@ -22,6 +24,14 @@ class MainMenuDrawer extends StatefulWidget {
 }
 
 class _MainMenuDrawerState extends State<MainMenuDrawer> {
+  final _bloc = locator<MainMenuDrawerBloc>();
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc.init();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -108,6 +118,9 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
           ListTile(
             title: Text('Add Music'),
             subtitle: Text('Add music from your device to the player'),
+            onTap: () async {
+              _bloc.selectSongs();
+            },
           )
         ],
       ),
