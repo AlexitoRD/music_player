@@ -21,6 +21,7 @@ class _SongsPageState extends State<SongsPage> {
   @override
   void initState() {
     super.initState();
+    print('Songs init');
     _bloc.init();
   }
 
