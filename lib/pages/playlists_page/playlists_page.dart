@@ -5,14 +5,14 @@
 
 import 'package:flutter/material.dart';
 
-class PlaylistPage extends StatefulWidget {
-  const PlaylistPage();
+class PlaylistsPage extends StatefulWidget {
+  const PlaylistsPage();
 
   @override
-  State<PlaylistPage> createState() => _PlaylistPageState();
+  State<PlaylistsPage> createState() => _PlaylistsPageState();
 }
 
-class _PlaylistPageState extends State<PlaylistPage> {
+class _PlaylistsPageState extends State<PlaylistsPage> {
   @override
   Widget build(BuildContext context) {
     return Container();

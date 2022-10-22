@@ -49,18 +49,22 @@ class _MainMenuDrawerState extends State<MainMenuDrawer> {
           ListTile(
             title: Text('Playlists'),
             subtitle: Text('View your created playlists'),
+            key: Key('PlaylistTile'),
           ),
           ListTile(
             title: Text('Artists'),
             subtitle: Text('Sort music by artist'),
+            key: Key('ArtistTile'),
           ),
           ListTile(
             title: Text('Albums'),
             subtitle: Text('Sort music by albums'),
+            key: Key('AlbumsTile'),
           ),
           ListTile(
             title: Text('Songs'),
             subtitle: Text('All songs added'),
+            key: Key('SongsTile'),
           ),
           ListTile(
             title: Text(
