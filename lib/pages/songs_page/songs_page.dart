@@ -17,7 +17,6 @@ class SongsPage extends StatefulWidget {
 
 class _SongsPageState extends State<SongsPage> {
   final SongsPageBloc _bloc = locator<SongsPageBloc>();
-  bool _isPlaying = false;
 
   @override
   void initState() {
@@ -49,12 +48,7 @@ class _SongsPageState extends State<SongsPage> {
                         await _bloc.removeSong(songList[index].id);
                       },
                       onTap: () {
-                        _isPlaying
-                            ? _bloc.pauseSong()
-                            : _bloc.playSong(songList[index].filePath);
-                        setState(() {
-                          _isPlaying = !_isPlaying;
-                        });
+                        _bloc.playSong(songList[index]);
                       },
                     );
                   },

@@ -18,11 +18,9 @@ class BasePageBloc {
   Future<void> init() async {
     _audioPlayerEvents = GlobalEventBus.events.listen((event) {
       if (event is PlayEvent) {
-        print('Play event at ${event.filePath}');
-        _audioPlayer.play(DeviceFileSource(event.filePath));
+        _audioPlayer.play(DeviceFileSource(event.song.filePath));
       }
       if (event is PauseEvent) {
-        print('Pause event');
         _audioPlayer.pause();
       }
     });

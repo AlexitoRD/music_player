@@ -35,8 +35,8 @@ class SongsPageBloc {
     _allSongsSubject.add(newSongList);
   }
 
-  void playSong(String filePath) {
-    GlobalEventBus.sendEvent(PlayEvent(filePath: filePath));
+  void playSong(Song song) {
+    GlobalEventBus.sendEvent(PlayEvent(song: song));
   }
 
   void pauseSong() {

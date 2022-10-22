@@ -3,12 +3,14 @@
  * Date: 2022-10-22, 5:23 p.m.
  */
 
+import 'package:music_player/models/song.dart';
+
 abstract class GlobalEvent {}
 
 class PlayEvent extends GlobalEvent {
-  final String filePath;
+  final Song song;
 
-  PlayEvent({required this.filePath});
+  PlayEvent({required this.song});
 }
 
 class PauseEvent extends GlobalEvent {
