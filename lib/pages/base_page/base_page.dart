@@ -47,5 +47,6 @@ class _BasePageState extends State<BasePage> {
   @override
   void dispose() {
     super.dispose();
+    _bloc.dispose();
   }
 }

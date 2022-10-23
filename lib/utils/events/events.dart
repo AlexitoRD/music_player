@@ -24,3 +24,7 @@ class StopEvent extends GlobalEvent {
 class ResumeEvent extends GlobalEvent {
   ResumeEvent();
 }
+
+class AddMusicEvent extends GlobalEvent {
+  AddMusicEvent();
+}

@@ -47,7 +47,6 @@ class SongService {
     final db = await _databaseService.openDb();
     List<Artist> artists = [];
     final results = await db.rawQuery('SELECT artist FROM SONGS');
-    print('Empty ${results.isEmpty}');
     for (Map<String, dynamic> artist in results) {
       artists.add(Artist.fromDBResult(artist));
     }
