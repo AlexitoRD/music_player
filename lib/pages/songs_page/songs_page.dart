@@ -26,35 +26,30 @@ class _SongsPageState extends State<SongsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      body: SafeArea(
-        child: Center(
-          child: StreamBuilder<List<Song>>(
-            stream: _bloc.allSongs,
-            builder: (context, snapshot) {
-              final songList = snapshot.data;
-              if (songList == null || songList.isEmpty) {
-                return CircularProgressIndicator();
-              }
-              return ListView.builder(
-                itemCount: songList.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(songList[index].title ?? 'Unknown Title'),
-                    subtitle: Text(songList[index].artist ?? 'Unknown Artist'),
-                    onLongPress: () async {
-                      await _bloc.removeSong(songList[index].id);
-                    },
-                    onTap: () {
-                      _bloc.playSong(songList[index]);
-                    },
-                  );
+    return Center(
+      child: StreamBuilder<List<Song>>(
+        stream: _bloc.allSongs,
+        builder: (context, snapshot) {
+          final songList = snapshot.data;
+          if (songList == null || songList.isEmpty) {
+            return CircularProgressIndicator();
+          }
+          return ListView.builder(
+            itemCount: songList.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(songList[index].title ?? 'Unknown Title'),
+                subtitle: Text(songList[index].artist ?? 'Unknown Artist'),
+                onLongPress: () async {
+                  await _bloc.removeSong(songList[index].id);
+                },
+                onTap: () {
+                  _bloc.playSong(songList[index]);
                 },
               );
             },
-          ),
-        ),
+          );
+        },
       ),
     );
   }
