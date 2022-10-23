@@ -43,8 +43,9 @@ class _ArtistsPageState extends State<ArtistsPage> {
           return ListView.builder(
             itemCount: allArtists.length,
             itemBuilder: (context, index) {
-              return ListTile(
+              return ExpansionTile(
                 title: Text(allArtists[index].name),
+                children: [],
               );
             },
           );

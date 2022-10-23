@@ -28,3 +28,7 @@ class ResumeEvent extends GlobalEvent {
 class AddMusicEvent extends GlobalEvent {
   AddMusicEvent();
 }
+
+class ReloadMusicListEvent extends GlobalEvent {
+  ReloadMusicListEvent();
+}

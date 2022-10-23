@@ -4,17 +4,16 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:music_player/utils/events/events.dart';
-import 'package:music_player/utils/events/global_event_bus.dart';
+import 'package:music_player/dialogs/song_import_type.dart';
 
-class SettingsDialog extends StatefulWidget {
-  const SettingsDialog();
+class SettingsBottomSheet extends StatefulWidget {
+  const SettingsBottomSheet();
 
   @override
-  State<SettingsDialog> createState() => _SettingsDialogState();
+  State<SettingsBottomSheet> createState() => _SettingsBottomSheetState();
 }
 
-class _SettingsDialogState extends State<SettingsDialog> {
+class _SettingsBottomSheetState extends State<SettingsBottomSheet> {
   @override
   void initState() {
     super.initState();
@@ -22,10 +21,8 @@ class _SettingsDialogState extends State<SettingsDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(32.0)),
-      ),
+    return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       child: Padding(
         padding: const EdgeInsets.only(top: 15, bottom: 15),
         child: Column(
@@ -35,7 +32,12 @@ class _SettingsDialogState extends State<SettingsDialog> {
               title: Text('Add Music'),
               subtitle: Text('Add music from your device to the app'),
               onTap: () {
-                GlobalEventBus.sendEvent(AddMusicEvent());
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return SongImportType();
+                  },
+                );
               },
             ),
             ListTile(

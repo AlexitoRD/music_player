@@ -3,6 +3,8 @@
  * Date: 2022-10-22, 1:11 a.m.
  */
 
+import 'dart:async';
+
 import 'package:music_player/database_service/song_service.dart';
 import 'package:music_player/models/song.dart';
 import 'package:music_player/utils/events/events.dart';
@@ -18,7 +20,14 @@ class SongsPageBloc {
 
   ValueStream<List<Song>> get allSongs => _allSongsSubject;
 
+  late StreamSubscription<GlobalEvent> _subscription;
+
   Future<void> init() async {
+    _subscription = GlobalEventBus.events.listen((event) {
+      if (event is ReloadMusicListEvent) {
+        _updateSongList();
+      }
+    });
     final allSongs = await _songService.getAllSongs();
     _allSongsSubject.add(allSongs);
   }
@@ -26,7 +35,7 @@ class SongsPageBloc {
   Future<void> removeSong(int? songID) async {
     if (songID != null) {
       await _songService.removeSong(songID);
-      await _updateSongList();
+      _updateSongList();
     }
   }
 
@@ -45,5 +54,6 @@ class SongsPageBloc {
 
   void dispose() {
     _allSongsSubject.close();
+    _subscription.cancel();
   }
 }

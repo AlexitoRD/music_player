@@ -4,9 +4,9 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:music_player/dialogs/settings_dialog.dart';
 import 'package:music_player/pages/base_page/base_page_bloc.dart';
 import 'package:music_player/pages/base_page/bottom_nav_bar_items.dart';
+import 'package:music_player/sheets/settings_sheet.dart';
 import 'package:music_player/utils/locator.dart';
 
 class BasePage extends StatefulWidget {
@@ -38,12 +38,11 @@ class _BasePageState extends State<BasePage> {
         currentIndex: _selectedPage,
         onTap: (index) {
           if (index == 2) {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return SettingsDialog();
-              },
-            );
+            showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return SettingsBottomSheet();
+                });
           } else {
             setState(() {
               _selectedPage = index;
