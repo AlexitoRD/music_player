@@ -24,11 +24,12 @@ class AddMusic {
       for (File file in files) {
         final metadata = await MetadataRetriever.fromFile(File(file.path));
         final song = Song(
-            title: metadata.trackName,
-            artist: metadata.trackArtistNames?.first,
-            album: metadata.albumName,
-            year: metadata.year,
-            filePath: file.path);
+          title: metadata.trackName,
+          artist: metadata.trackArtistNames?.first,
+          album: metadata.albumName,
+          year: metadata.year,
+          filePath: file.path,
+        );
         _songService.addSong(song);
         GlobalEventBus.sendEvent(ReloadMusicListEvent());
       }

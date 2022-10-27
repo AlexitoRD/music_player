@@ -25,5 +25,6 @@ class DatabaseService {
       'artist TEXT, '
       'album TEXT, '
       'year INTEGER, '
-      'filePath Text)';
+      'filePath Text, '
+      'albumArt INTEGER';
 }

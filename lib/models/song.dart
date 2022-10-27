@@ -3,6 +3,8 @@
  * Date: 2022-10-21, 10:27 p.m.
  */
 
+import 'dart:typed_data';
+
 class Song {
   final int? id;
   final String? title;
@@ -10,6 +12,7 @@ class Song {
   final String? album;
   final int? year;
   final String filePath;
+  final Uint8List? albumArt;
 
   Song({
     this.id,
@@ -18,6 +21,7 @@ class Song {
     this.album,
     this.year,
     required this.filePath,
+    this.albumArt,
   });
 
   Map<String, dynamic> toMap() {
@@ -28,6 +32,7 @@ class Song {
       'album': album,
       'year': year,
       'filePath': filePath,
+      'albumArt': albumArt,
     };
   }
 
@@ -38,6 +43,7 @@ class Song {
         artist: result['artist'],
         album: result['album'],
         year: result['year'],
-        filePath: result['filePath']);
+        filePath: result['filePath'],
+        albumArt: result['albumArt']);
   }
 }
