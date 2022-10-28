@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:music_player/models/song.dart';
-import 'package:music_player/pages/player_page/player_page_bloc.dart';
+import 'package:music_player/ui/pages/player_page/player_page_bloc.dart';
 import 'package:music_player/utils/device_info.dart';
 import 'package:music_player/utils/events/events.dart';
 import 'package:music_player/utils/events/global_event_bus.dart';

@@ -4,7 +4,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:music_player/dialogs/song_import_type.dart';
+import 'package:music_player/ui/dialogs/song_import_type.dart';
 
 class SettingsBottomSheet extends StatefulWidget {
   const SettingsBottomSheet();

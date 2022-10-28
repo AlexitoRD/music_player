@@ -4,10 +4,10 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:music_player/pages/albums_page/albums_page.dart';
-import 'package:music_player/pages/artists_page/artists_page.dart';
-import 'package:music_player/pages/playlists_page/playlists_page.dart';
-import 'package:music_player/pages/songs_page/songs_page.dart';
+import 'package:music_player/ui/pages/albums_page/albums_page.dart';
+import 'package:music_player/ui/pages/artists_page/artists_page.dart';
+import 'package:music_player/ui/pages/playlists_page/playlists_page.dart';
+import 'package:music_player/ui/pages/songs_page/songs_page.dart';
 
 class MusicPage extends StatefulWidget {
   const MusicPage();

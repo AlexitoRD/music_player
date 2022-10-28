@@ -5,8 +5,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:music_player/models/artist.dart';
-import 'package:music_player/pages/artists_page/artist_page_bloc.dart';
 import 'package:music_player/utils/locator.dart';
+
+import 'artist_page_bloc.dart';
 
 class ArtistsPage extends StatefulWidget {
   const ArtistsPage();

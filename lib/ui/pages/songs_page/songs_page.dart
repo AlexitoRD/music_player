@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:music_player/models/song.dart';
-import 'package:music_player/pages/songs_page/songs_page_bloc.dart';
+import 'package:music_player/ui/pages/songs_page/songs_page_bloc.dart';
 import 'package:music_player/utils/locator.dart';
 
 class SongsPage extends StatefulWidget {

@@ -4,7 +4,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:music_player/pages/base_page/base_page.dart';
+import 'package:music_player/ui/pages/base_page/base_page.dart';
 import 'package:music_player/utils/locator.dart';
 
 void main() {

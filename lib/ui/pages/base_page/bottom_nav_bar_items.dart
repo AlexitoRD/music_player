@@ -4,8 +4,8 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:music_player/pages/music_page/music_page.dart';
-import 'package:music_player/pages/player_page/player_page.dart';
+import 'package:music_player/ui/pages/music_page/music_page.dart';
+import 'package:music_player/ui/pages/player_page/player_page.dart';
 
 class BottomNavBarItems {
   static List<BottomNavigationBarItem> items = [

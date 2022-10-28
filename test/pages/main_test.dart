@@ -5,7 +5,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:music_player/pages/player_page/player_page.dart';
+import 'package:music_player/ui/pages/base_page/base_page.dart';
+import 'package:music_player/ui/pages/player_page/player_page.dart';
 
 void main() {
   setUp(() {});
@@ -19,7 +20,11 @@ void main() {
       ),
     );
 
-    expect(find.byType(PlayerPage), findsOneWidget);
+    await widgetTester.pump();
+    await widgetTester.pump();
+    await widgetTester.pump();
+
+    expect(find.byType(BasePage), findsOneWidget);
     expect(find.text('M P'), findsOneWidget);
   });
 }
