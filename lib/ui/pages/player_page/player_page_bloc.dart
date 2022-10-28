@@ -5,15 +5,12 @@
 
 import 'dart:async';
 
-import 'package:audioplayers/audioplayers.dart';
 import 'package:music_player/models/song.dart';
 import 'package:music_player/utils/events/events.dart';
 import 'package:music_player/utils/events/global_event_bus.dart';
 import 'package:rxdart/rxdart.dart';
 
 class PlayerPageBloc {
-  final AudioPlayer audioPlayer = AudioPlayer();
-
   final BehaviorSubject<Song> _currentSongSubject = BehaviorSubject<Song>();
   final BehaviorSubject<bool> _isPlayingSubject = BehaviorSubject<bool>();
 
