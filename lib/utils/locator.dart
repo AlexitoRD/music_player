@@ -15,7 +15,7 @@ import '../ui/pages/base_page/base_page_bloc.dart';
 
 final locator = GetIt.instance;
 
-void setUp() {
+void setUpLocator() {
   locator.registerFactory<DatabaseService>(() => DatabaseService());
   locator.registerFactory<SongService>(() => SongService());
   locator.registerFactory<SongsPageBloc>(() => SongsPageBloc());

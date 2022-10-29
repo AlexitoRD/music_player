@@ -9,7 +9,7 @@ import 'package:music_player/utils/locator.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  setUp();
+  setUpLocator();
   runApp(
     const MyApp(),
   );

@@ -37,7 +37,6 @@ class AddMusic {
   }
 
   void addFolder() async {
-    String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
-    print('Directory $selectedDirectory');
+    // String? selectedDirectory = await FilePicker.platform.getDirectoryPath();
   }
 }
