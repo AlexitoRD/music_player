@@ -13,9 +13,9 @@ import '../../mocks/bloc_setup.dart';
 void main() {
   setUp(() {
     BlocSetup.setUpMockPlayPageBloc();
-    BlocSetup.setUpBasePageBloc();
-    BlocSetup.setUpSongPageBloc();
-    BlocSetup.setUpArtistBloc();
+    BlocSetup.setUpMockBasePageBloc();
+    BlocSetup.setUpMockSongPageBloc();
+    BlocSetup.setUpMockArtistBloc();
   });
 
   tearDown(() {

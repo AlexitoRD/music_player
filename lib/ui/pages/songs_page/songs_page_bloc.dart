@@ -39,17 +39,17 @@ class SongsPageBloc {
     }
   }
 
-  Future<void> _updateSongList() async {
-    final newSongList = await _songService.getAllSongs();
-    _allSongsSubject.add(newSongList);
-  }
-
   void playSong(Song song) {
     GlobalEventBus.sendEvent(PlayEvent(song: song));
   }
 
   void pauseSong() {
     GlobalEventBus.sendEvent(PauseEvent());
+  }
+
+  Future<void> _updateSongList() async {
+    final newSongList = await _songService.getAllSongs();
+    _allSongsSubject.add(newSongList);
   }
 
   void dispose() {

@@ -4,6 +4,7 @@
  */
 
 import 'package:mocktail/mocktail.dart';
+import 'package:music_player/database_service/song_service.dart';
 import 'package:music_player/models/song.dart';
 import 'package:music_player/ui/pages/artists_page/artist_page_bloc.dart';
 import 'package:music_player/ui/pages/base_page/base_page_bloc.dart';
@@ -37,5 +38,11 @@ class MockArtistsPageBloc extends Mock implements ArtistsPageBloc {
   MockArtistsPageBloc() {
     when(() => init()).thenAnswer((_) async {});
     when(() => allArtists).thenAnswer((_) => BehaviorSubject.seeded([]));
+  }
+}
+
+class MockSongService extends Mock implements SongService {
+  MockSongService() {
+    when(() => getAllSongs()).thenAnswer((_) => Future.value([]));
   }
 }

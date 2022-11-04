@@ -3,6 +3,7 @@
  * Date: 2022-10-27, 9:03 p.m.
  */
 
+import 'package:music_player/database_service/song_service.dart';
 import 'package:music_player/ui/pages/artists_page/artist_page_bloc.dart';
 import 'package:music_player/ui/pages/base_page/base_page_bloc.dart';
 import 'package:music_player/ui/pages/player_page/player_page_bloc.dart';
@@ -18,21 +19,27 @@ class BlocSetup {
     return mock;
   }
 
-  static MockBasePageBloc setUpBasePageBloc() {
+  static MockBasePageBloc setUpMockBasePageBloc() {
     final mock = MockBasePageBloc();
     locator.registerSingleton<BasePageBloc>(mock);
     return mock;
   }
 
-  static MockSongsPageBloc setUpSongPageBloc() {
+  static MockSongsPageBloc setUpMockSongPageBloc() {
     final mock = MockSongsPageBloc();
     locator.registerSingleton<SongsPageBloc>(mock);
     return mock;
   }
 
-  static MockArtistsPageBloc setUpArtistBloc() {
+  static MockArtistsPageBloc setUpMockArtistBloc() {
     final mock = MockArtistsPageBloc();
     locator.registerSingleton<ArtistsPageBloc>(mock);
+    return mock;
+  }
+
+  static MockSongService setUpMockSongService() {
+    final mock = MockSongService();
+    locator.registerSingleton<SongService>(mock);
     return mock;
   }
 }
