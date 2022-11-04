@@ -40,6 +40,8 @@ void main() {
 
     expect(find.byType(PlayerPage), findsOneWidget);
     expect(find.byIcon(Icons.pause), findsOneWidget);
+
+    await tester.tap(find.byKey(Key('PlayPauseButton')));
   });
 
   testWidgets('Test the music gets played', (tester) async {
@@ -53,11 +55,9 @@ void main() {
 
     await tester.pump();
 
-    GlobalEventBus.events.listen((event) {
-      expectLater(event.runtimeType, PlayEvent);
-    });
-
     expect(find.byType(PlayerPage), findsOneWidget);
     expect(find.byIcon(Icons.play_arrow), findsOneWidget);
+
+    await tester.tap(find.byKey(Key('PlayPauseButton')));
   });
 }
