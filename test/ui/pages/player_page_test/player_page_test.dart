@@ -7,8 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:music_player/ui/pages/player_page/player_page.dart';
-import 'package:music_player/utils/events/events.dart';
-import 'package:music_player/utils/events/global_event_bus.dart';
+import 'package:music_player/utils/locator.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../mocks/bloc_setup.dart';
@@ -21,7 +20,9 @@ void main() {
     mockPlayerPageBloc = BlocSetup.setUpMockPlayPageBloc();
   });
 
-  tearDown(() {});
+  tearDown(() {
+    locator.reset();
+  });
 
   testWidgets('Test the music gets paused', (tester) async {
     when(() => mockPlayerPageBloc.isPlaying)
@@ -33,10 +34,6 @@ void main() {
     );
 
     await tester.pump();
-
-    GlobalEventBus.events.listen((event) {
-      expectLater(event.runtimeType, PauseEvent);
-    });
 
     expect(find.byType(PlayerPage), findsOneWidget);
     expect(find.byIcon(Icons.pause), findsOneWidget);
