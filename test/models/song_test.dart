@@ -34,4 +34,18 @@ void main() {
       'albumArt': [0, 0, 0]
     });
   });
+
+  test('Test can create a Song from a map', () async {
+    final song = Song.fromDBResult({
+      'id': 1,
+      'title': 'title',
+      'artist': 'artist',
+      'album': 'album',
+      'year': 1991,
+      'filePath': 'file_path',
+      'albumArt': Uint8List(12),
+    });
+    expect(song.artist, 'artist');
+    expect(song.id, 1);
+  });
 }
