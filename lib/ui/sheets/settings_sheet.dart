@@ -22,6 +22,7 @@ class _SettingsBottomSheetState extends State<SettingsBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: Key('SettingsBottomSheet'),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       child: Padding(
         padding: const EdgeInsets.only(top: 15, bottom: 15),

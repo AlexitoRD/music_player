@@ -28,6 +28,7 @@ class _MusicPageState extends State<MusicPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: Key('MusicPage'),
       body: SafeArea(
         child: Row(
           children: [

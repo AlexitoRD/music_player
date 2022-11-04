@@ -1,5 +1,10 @@
 /*
  * Author: Alexander Dunbar
+ * Date: 2022-11-04, 8:27 p.m.
+ */
+
+/*
+ * Author: Alexander Dunbar
  * Date: 2022-10-18, 8:14 p.m.
  */
 
@@ -31,5 +36,47 @@ void main() {
 
     expect(find.byType(BasePage), findsOneWidget);
     expect(find.byType(BottomNavigationBar), findsOneWidget);
+  });
+
+  testWidgets('Test that tapping on the settings item opens the sheet',
+      (widgetTester) async {
+    await widgetTester.pumpWidget(
+      const MaterialApp(
+        home: BasePage(),
+      ),
+    );
+
+    await widgetTester.tap(find.byIcon(Icons.settings));
+    await widgetTester.pump();
+
+    expect(find.byKey(Key('SettingsBottomSheet')), findsOneWidget);
+  });
+
+  testWidgets('Test that tapping the note opens the music page',
+      (widgetTester) async {
+    await widgetTester.pumpWidget(
+      const MaterialApp(
+        home: BasePage(),
+      ),
+    );
+
+    await widgetTester.tap(find.byIcon(Icons.music_note));
+    await widgetTester.pump();
+
+    expect(find.byKey(Key('MusicPage')), findsOneWidget);
+  });
+
+  testWidgets('Tes that tapping the play button opens the player',
+      (widgetTester) async {
+    await widgetTester.pumpWidget(
+      const MaterialApp(
+        home: BasePage(),
+      ),
+    );
+
+    await widgetTester.tap(find.byIcon(Icons.music_note));
+    await widgetTester.pump();
+
+    expect(find.byKey(Key('PlayerPage')), findsOneWidget);
   });
 }
