@@ -27,6 +27,8 @@ void main() {
 
     expect(bloc.currentSong.value, song);
     expect(bloc.isPlaying.value, true);
+
+    bloc.dispose();
   });
 
   test('Gets a Pause event', () async {
@@ -39,6 +41,8 @@ void main() {
     final result = bloc.isPlaying.value;
 
     expect(result, false);
+
+    bloc.dispose();
   });
 
   test('Gets a Stop event', () async {
@@ -51,6 +55,8 @@ void main() {
     final result = bloc.isPlaying.value;
 
     expect(result, false);
+
+    bloc.dispose();
   });
 
   test('Gets a Resume event', () async {
@@ -63,6 +69,8 @@ void main() {
     final result = bloc.isPlaying.value;
 
     expect(result, true);
+
+    bloc.dispose();
   });
 
   test('Test dispose()', () async {

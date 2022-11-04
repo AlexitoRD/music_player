@@ -32,6 +32,7 @@ class MockSongsPageBloc extends Mock implements SongsPageBloc {
   MockSongsPageBloc() {
     when(() => init()).thenAnswer((_) async {});
     when(() => allSongs).thenAnswer((_) => BehaviorSubject.seeded([]));
+    when(() => removeSong(any())).thenAnswer((_) async {});
   }
 }
 
