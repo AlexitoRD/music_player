@@ -9,6 +9,8 @@ import 'package:music_player/ui/pages/player_page/player_page_bloc.dart';
 import 'package:music_player/utils/events/events.dart';
 import 'package:music_player/utils/events/global_event_bus.dart';
 
+import '../../../test_utils/test_utils.dart';
+
 void main() {
   setUp(() {});
 
@@ -61,5 +63,15 @@ void main() {
     final result = bloc.isPlaying.value;
 
     expect(result, true);
+  });
+
+  test('Test dispose()', () async {
+    PlayerPageBloc bloc = PlayerPageBloc();
+    await bloc.init();
+
+    bloc.dispose();
+
+    expect(bloc.isPlaying, isClosed);
+    expect(bloc.currentSong, isClosed);
   });
 }

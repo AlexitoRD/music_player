@@ -13,6 +13,7 @@ import 'package:music_player/utils/locator.dart';
 
 import '../../../mocks/bloc_setup.dart';
 import '../../../mocks/mock_classes.dart';
+import '../../../test_utils/test_utils.dart';
 
 void main() {
   late MockSongService mockSongService;
@@ -112,5 +113,16 @@ void main() {
     });
 
     bloc.pauseSong();
+  });
+
+  test('dispose()', () async {
+    SongsPageBloc bloc = SongsPageBloc();
+    await bloc.init();
+    await Future.delayed(Duration.zero);
+
+    bloc.dispose();
+    await Future.delayed(Duration.zero);
+
+    expect(bloc.allSongs, isClosed);
   });
 }

@@ -36,6 +36,7 @@ class PlayerPageBloc {
   }
 
   void dispose() {
+    _isPlayingSubject.close();
     _currentSongSubject.close();
     _subscription.cancel();
   }
