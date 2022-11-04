@@ -3,6 +3,7 @@
  * Date: 2022-10-27, 9:01 p.m.
  */
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:music_player/database_service/song_service.dart';
 import 'package:music_player/models/song.dart';
@@ -44,5 +45,14 @@ class MockArtistsPageBloc extends Mock implements ArtistsPageBloc {
 class MockSongService extends Mock implements SongService {
   MockSongService() {
     when(() => getAllSongs()).thenAnswer((_) => Future.value([]));
+  }
+}
+
+class MockAudioPlayer extends Mock implements AudioPlayer {
+  MockAudioPlayer() {
+    when(() => play(any())).thenAnswer((_) async {});
+    when(() => pause()).thenAnswer((_) async {});
+    when(() => resume()).thenAnswer((_) async {});
+    when(() => release()).thenAnswer((_) async {});
   }
 }

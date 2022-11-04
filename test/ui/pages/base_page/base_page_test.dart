@@ -8,7 +8,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:music_player/ui/pages/base_page/base_page.dart';
 import 'package:music_player/utils/locator.dart';
 
-import '../../mocks/bloc_setup.dart';
+import '../../../mocks/bloc_setup.dart';
 
 void main() {
   setUp(() {

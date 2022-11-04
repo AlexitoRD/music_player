@@ -3,6 +3,7 @@
  * Date: 2022-10-27, 9:03 p.m.
  */
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:music_player/database_service/song_service.dart';
 import 'package:music_player/ui/pages/artists_page/artist_page_bloc.dart';
 import 'package:music_player/ui/pages/base_page/base_page_bloc.dart';
@@ -40,6 +41,12 @@ class BlocSetup {
   static MockSongService setUpMockSongService() {
     final mock = MockSongService();
     locator.registerSingleton<SongService>(mock);
+    return mock;
+  }
+
+  static MockAudioPlayer setUpMockAudioPlayer() {
+    final mock = MockAudioPlayer();
+    locator.registerSingleton<AudioPlayer>(mock);
     return mock;
   }
 }
