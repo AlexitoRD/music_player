@@ -105,4 +105,10 @@ class _PlayerPageState extends State<PlayerPage> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _bloc.dispose();
+  }
 }

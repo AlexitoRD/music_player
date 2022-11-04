@@ -35,10 +35,6 @@ class PlayerPageBloc {
     });
   }
 
-  Future<void> playSong() async {}
-
-  Future<void> pauseSong() async {}
-
   void dispose() {
     _currentSongSubject.close();
     _subscription.cancel();
