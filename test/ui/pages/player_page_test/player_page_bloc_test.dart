@@ -50,4 +50,16 @@ void main() {
 
     expect(result, false);
   });
+
+  test('Gets a Resume event', () async {
+    PlayerPageBloc bloc = PlayerPageBloc();
+    await bloc.init();
+
+    GlobalEventBus.sendEvent(ResumeEvent());
+    await Future.delayed(Duration.zero);
+
+    final result = bloc.isPlaying.value;
+
+    expect(result, true);
+  });
 }

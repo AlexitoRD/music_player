@@ -81,6 +81,7 @@ class _PlayerPageState extends State<PlayerPage> {
                         builder: (context, snapshot) {
                           final isPlaying = snapshot.data!;
                           return IconButton(
+                            key: Key('PlayPauseButton'),
                             onPressed: () {
                               isPlaying
                                   ? GlobalEventBus.sendEvent(PauseEvent())
