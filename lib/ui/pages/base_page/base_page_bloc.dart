@@ -26,7 +26,6 @@ class BasePageBloc {
       if (event is ResumeEvent) {
         _audioPlayer.resume();
       }
-      if (event is AddMusicEvent) {}
     });
   }
 

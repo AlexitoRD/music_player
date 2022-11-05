@@ -35,6 +35,7 @@ class _SongImportTypeState extends State<SongImportType> {
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
+              key: Key('ByFile'),
               title: Text('By File'),
               subtitle: Text('Select individual or multiple songs'),
               onTap: () {
@@ -42,6 +43,7 @@ class _SongImportTypeState extends State<SongImportType> {
               },
             ),
             ListTile(
+              key: Key('ByFolder'),
               title: Text('By Folder'),
               subtitle: Text('Select entire folders of songs'),
               onTap: () {
