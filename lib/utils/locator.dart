@@ -13,6 +13,7 @@ import 'package:music_player/utils/add_music.dart';
 
 import '../ui/pages/base_page/base_page_bloc.dart';
 
+// coverage:ignore-file
 final locator = GetIt.instance;
 
 void setUpLocator() {
