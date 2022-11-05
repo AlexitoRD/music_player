@@ -31,6 +31,7 @@ class _SettingsBottomSheetState extends State<SettingsBottomSheet> {
           children: [
             ListTile(
               title: Text('Add Music'),
+              key: Key('AddMusicTile'),
               subtitle: Text('Add music from your device to the app'),
               onTap: () {
                 showDialog(

@@ -11,6 +11,7 @@ import 'package:music_player/ui/pages/artists_page/artist_page_bloc.dart';
 import 'package:music_player/ui/pages/base_page/base_page_bloc.dart';
 import 'package:music_player/ui/pages/player_page/player_page_bloc.dart';
 import 'package:music_player/ui/pages/songs_page/songs_page_bloc.dart';
+import 'package:music_player/utils/add_music.dart';
 import 'package:rxdart/rxdart.dart';
 
 class MockPlayerPageBloc extends Mock implements PlayerPageBloc {
@@ -56,4 +57,8 @@ class MockAudioPlayer extends Mock implements AudioPlayer {
     when(() => resume()).thenAnswer((_) async {});
     when(() => release()).thenAnswer((_) async {});
   }
+}
+
+class MockAddMusic extends Mock implements AddMusic {
+  MockAddMusic() {}
 }

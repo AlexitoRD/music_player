@@ -25,6 +25,7 @@ class _SongImportTypeState extends State<SongImportType> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      key: Key('SongImportTypeDialog'),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(32.0)),
       ),

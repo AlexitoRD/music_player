@@ -9,6 +9,7 @@ import 'package:music_player/ui/pages/artists_page/artist_page_bloc.dart';
 import 'package:music_player/ui/pages/base_page/base_page_bloc.dart';
 import 'package:music_player/ui/pages/player_page/player_page_bloc.dart';
 import 'package:music_player/ui/pages/songs_page/songs_page_bloc.dart';
+import 'package:music_player/utils/add_music.dart';
 import 'package:music_player/utils/locator.dart';
 
 import 'mock_classes.dart';
@@ -47,6 +48,12 @@ class BlocSetup {
   static MockAudioPlayer setUpMockAudioPlayer() {
     final mock = MockAudioPlayer();
     locator.registerSingleton<AudioPlayer>(mock);
+    return mock;
+  }
+
+  static MockAddMusic setUpAddMusic() {
+    final mock = MockAddMusic();
+    locator.registerSingleton<AddMusic>(mock);
     return mock;
   }
 }
