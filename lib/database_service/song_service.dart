@@ -46,10 +46,21 @@ class SongService {
   Future<List<Artist>> getAllArtists() async {
     final db = await _databaseService.openDb();
     List<Artist> artists = [];
-    final results = await db.rawQuery('SELECT artist FROM SONGS');
+    final results = await db.rawQuery('SELECT artist FROM songs');
     for (Map<String, dynamic> artist in results) {
       artists.add(Artist.fromDBResult(artist));
     }
     return artists;
+  }
+
+  Future<List<Song>> getSongsForArtist(String arist) async {
+    final db = await _databaseService.openDb();
+    List<Song> songs = [];
+    final results =
+        await db.rawQuery('SELECT * FROM songs where artist = ?', [arist]);
+    for (Map<String, dynamic> song in results) {
+      songs.add(Song.fromDBResult(song));
+    }
+    return songs;
   }
 }

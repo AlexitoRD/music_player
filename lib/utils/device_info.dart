@@ -5,6 +5,7 @@
 
 import 'package:flutter/cupertino.dart';
 
+// coverage:ignore-file
 class DeviceInfo {
   final BuildContext context;
   const DeviceInfo(this.context);

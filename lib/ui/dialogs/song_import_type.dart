@@ -39,7 +39,9 @@ class _SongImportTypeState extends State<SongImportType> {
               title: Text('By File'),
               subtitle: Text('Select individual or multiple songs'),
               onTap: () {
-                _addMusic.addFile();
+                _addMusic.addFile().then((value) {
+                  Navigator.of(context).pop();
+                });
               },
             ),
             ListTile(

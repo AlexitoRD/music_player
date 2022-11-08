@@ -7,6 +7,7 @@ import 'dart:async';
 
 import 'package:music_player/database_service/song_service.dart';
 import 'package:music_player/models/artist.dart';
+import 'package:music_player/models/song.dart';
 import 'package:music_player/utils/events/events.dart';
 import 'package:music_player/utils/events/global_event_bus.dart';
 import 'package:music_player/utils/locator.dart';
@@ -17,8 +18,12 @@ class ArtistsPageBloc {
 
   final BehaviorSubject<List<Artist>> _allArtistsSubject =
       BehaviorSubject<List<Artist>>();
+  final BehaviorSubject<List<Song>> _songsForArtistSubject =
+      BehaviorSubject<List<Song>>();
 
   ValueStream<List<Artist>> get allArtists => _allArtistsSubject;
+
+  ValueStream<List<Song>> get songsForArtist => _songsForArtistSubject;
 
   late StreamSubscription<GlobalEvent> _subscription;
 
@@ -30,6 +35,11 @@ class ArtistsPageBloc {
     });
     final allArtists = await _songService.getAllArtists();
     _allArtistsSubject.add(allArtists);
+  }
+
+  Future<void> getSongsForArtist(String arist) async {
+    final songsForArtist = await _songService.getSongsForArtist(arist);
+    _songsForArtistSubject.add(songsForArtist);
   }
 
   Future<void> _updateArtistList() async {

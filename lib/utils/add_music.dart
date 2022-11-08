@@ -17,7 +17,7 @@ import 'package:music_player/utils/locator.dart';
 class AddMusic {
   final SongService _songService = locator<SongService>();
 
-  void addFile() async {
+  Future<void> addFile() async {
     FilePickerResult? results = await FilePicker.platform.pickFiles(
         allowMultiple: true, type: FileType.custom, allowedExtensions: ['mp3']);
     if (results != null) {
