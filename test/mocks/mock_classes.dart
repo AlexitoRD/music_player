@@ -47,6 +47,7 @@ class MockArtistsPageBloc extends Mock implements ArtistsPageBloc {
 class MockSongService extends Mock implements SongService {
   MockSongService() {
     when(() => getAllSongs()).thenAnswer((_) => Future.value([]));
+    when(() => getAllArtists()).thenAnswer((_) => Future.value([]));
   }
 }
 
