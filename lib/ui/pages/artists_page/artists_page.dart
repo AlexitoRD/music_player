@@ -45,6 +45,7 @@ class _ArtistsPageState extends State<ArtistsPage> {
             itemCount: allArtists.length,
             itemBuilder: (context, index) {
               return ExpansionTile(
+                key: Key('ArtistTile'),
                 title: Text(allArtists[index].name),
                 children: const [],
               );
