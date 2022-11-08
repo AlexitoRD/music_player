@@ -13,6 +13,7 @@ import 'package:music_player/utils/events/events.dart';
 import 'package:music_player/utils/events/global_event_bus.dart';
 import 'package:music_player/utils/locator.dart';
 
+// coverage:ignore-file
 class AddMusic {
   final SongService _songService = locator<SongService>();
 
