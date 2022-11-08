@@ -9,9 +9,11 @@ import 'package:music_player/models/artist.dart';
 import 'package:music_player/ui/pages/artists_page/artist_page_bloc.dart';
 import 'package:music_player/utils/events/events.dart';
 import 'package:music_player/utils/events/global_event_bus.dart';
+import 'package:music_player/utils/locator.dart';
 
 import '../../../mocks/bloc_setup.dart';
 import '../../../mocks/mock_classes.dart';
+import '../../../test_utils/test_utils.dart';
 
 void main() {
   late MockSongService mockSongService;
@@ -19,7 +21,9 @@ void main() {
     mockSongService = BlocSetup.setUpMockSongService();
   });
 
-  tearDown(() {});
+  tearDown(() {
+    locator.reset();
+  });
 
   test('init listens for events and calls getAllArtists()', () async {
     final artist = Artist(name: 'Phil Collins');
@@ -33,7 +37,19 @@ void main() {
     await bloc.init();
     await Future.delayed(Duration.zero);
 
-    verify(() => mockSongService.getAllArtists()).called(1);
+    GlobalEventBus.sendEvent(ReloadMusicListEvent());
+    await Future.delayed(Duration.zero);
+
+    verify(() => mockSongService.getAllArtists()).called(2);
     expect(bloc.allArtists.value.first.name, artist.name);
+  });
+
+  test('Test dispose()', () async {
+    ArtistsPageBloc bloc = ArtistsPageBloc();
+    await bloc.init();
+
+    bloc.dispose();
+
+    expect(bloc.allArtists, isClosed);
   });
 }
