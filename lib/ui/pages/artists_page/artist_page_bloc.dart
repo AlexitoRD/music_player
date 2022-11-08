@@ -42,6 +42,17 @@ class ArtistsPageBloc {
     _songsForArtistSubject.add(songsForArtist);
   }
 
+  void playSong(Song song) {
+    GlobalEventBus.sendEvent(PlayEvent(song: song));
+  }
+
+  Future<void> removeSong(int? songID) async {
+    if (songID != null) {
+      await _songService.removeSong(songID);
+      //TODO: Need to update song list
+    }
+  }
+
   Future<void> _updateArtistList() async {
     final newArtistsList = await _songService.getAllArtists();
     _allArtistsSubject.add(newArtistsList);

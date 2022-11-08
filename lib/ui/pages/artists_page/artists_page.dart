@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/models/artist.dart';
 import 'package:music_player/models/song.dart';
+import 'package:music_player/ui/widgets/cells/song_cell.dart';
 import 'package:music_player/utils/locator.dart';
 
 import 'artist_page_bloc.dart';
@@ -73,8 +74,11 @@ class _ArtistsPageState extends State<ArtistsPage> {
                       shrinkWrap: true,
                       itemCount: songsForArtist.length,
                       itemBuilder: (context, index) {
-                        return Text(
-                            songsForArtist[index].title ?? 'Unknown Song');
+                        final song = songsForArtist[index];
+                        return SongCell(
+                            song: song,
+                            removeSong: _bloc.removeSong,
+                            playSong: _bloc.playSong);
                       },
                     );
                   },
